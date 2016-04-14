@@ -12,5 +12,13 @@ namespace CMS.Models
         {
             return new CMSDbContext();
         }
+
+        public IDbSet<Booking> Bookings { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Booking>().ToTable("Bookings");
+        }
     }
 }
